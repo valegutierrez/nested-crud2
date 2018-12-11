@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-8">
+    <p id="notice"><%= notice %></p>
+
+    <h3>Companies</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @companies.each do |company| %>
+          <tr>
+            <td><b><%= company.name %></b> Empleados: <%= company.employees.count %></td>
+            <td><%= link_to 'Show', company, class: 'btn btn-primary' %><%= link_to 'Edit', edit_company_path(company), class: 'btn btn-secondary' %><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-warning' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

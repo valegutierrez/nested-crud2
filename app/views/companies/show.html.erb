@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-8">
+    <h3>Compañía:</h3>
+    <p id="notice"><%= notice %></p>
+      <p>
+      <%= @company.name %>
+    </p>
+
+    <%= link_to 'Edit', edit_company_path(@company), class: 'btn btn-primary' %>
+    <%= link_to 'Back', companies_path, class: 'btn btn-secondary' %>
+
+    <table class="table">
+      <thead>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Area</th>
+        <th scope="col">Acciones</th>
+      </thead>
+      <tbody>
+        <% @employees.each do |employee| %>
+          <tr>
+            <td><%= employee.first_name %></td>
+            <td><%= employee.last_name %></td>
+            <td><%= employee.email %></td>
+            <td><%= employee.area_id %></td>
+            <td><%= link_to "Destroy", company_employee_path(@company, employee), method: :delete, class:'btn btn-warning' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <h3>Nuevo empleado:</h3>
+    <%= render 'employee_form'%>
+  </div>
+</div>
